@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+<div id="vals">
+    <input class="form-control" type="text" v-model="searchQuery" placeholder="Search" />
+    <table class="striped highlight">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Title</th>
+                <th>Platform</th>
+                <th>Score</th>
+                <th>Genre</th>
+                <th>Editors Choice</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% verbatim %}
+            <tr v-for="(d, index) in filteredResources">
+                <td>{{ index+1 }}</td>
+                <td>{{ d.title }}</td>
+                <td>{{ d.platform }}</td>
+                <td>{{ d.score }}</td>
+                <td>{{ d.genre }}</td>
+                <td>{{ d.editors_choice }}</td>
+            </tr>
+            {% endverbatim %}
+        </tbody>
+    </table>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
+<script src="/assets/js/script.js"></script>
+</html>
